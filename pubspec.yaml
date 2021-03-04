@@ -1,0 +1,35 @@
+name: flutter_resume_app
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hive: ^1.4.4+1             #nosql database
+  path_provider: ^1.6.24     #fayl pathlar uchun
+  get_it: ^5.0.3             #service locator
+  dio: ^3.0.10               #internet uchun
+  provider: ^4.3.2+3         #provider arxitekturasi uchun
+  animated_text_kit: ^3.1.0
+  auto_size_text: ^2.1.0
+  google_fonts: ^1.1.1
+  flutter_spinkit: ^4.1.2+1  #har xil loadinglar uchun
+  polygon_clipper: ^1.0.2    #ko'p burchak chizish uchun
+  fluttertoast: ^7.1.6
+  flutter_swiper: ^1.1.6     #view pager uchun
+  audioplayers: ^0.17.3
+  flutter_bloc: ^6.1.1       #bloc arxitekturasi uchun
+  equatable: ^1.2.5          #modellarni is qilib tekshirganda aniqlikni oshirish
+  flutter_rating_bar: ^3.2.0+1
+  flutter_svg: ^0.20.0-nullsafety.3
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/error_gif/
