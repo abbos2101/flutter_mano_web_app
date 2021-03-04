@@ -23,6 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> nextScreen() async {
     await Future.delayed(Duration(seconds: 3));
+    await hiveDB.saveToken("1995963b-9335-42f1-adcf-332df5f62fef");
     if (await hiveDB.getToken() == null)
       Navigator.pushReplacement(
         context,
