@@ -33,15 +33,15 @@ const RESOURCES = {
 "assets/assets/welcome_result.png": "30103f99f719251f11a50ec1f761d552",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "825b80a33d9f1ad22bf4e0c9ccf39953",
+"assets/NOTICES": "7e4834fadc7714f63cbec706205a6fa8",
 "assets/packages/fluttertoast/assets/toastify.css": "a85675050054f179444bc5ad70ffc635",
 "assets/packages/fluttertoast/assets/toastify.js": "e7006a0a033d834ef9414d48db3be6fc",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "acfb820120d1b867738b28b78163e97d",
-"/": "acfb820120d1b867738b28b78163e97d",
-"main.dart.js": "712f7bf44af10f009ae186099f4d035a",
+"index.html": "9b06b7202314cd428ed2aa694242a8f4",
+"/": "9b06b7202314cd428ed2aa694242a8f4",
+"main.dart.js": "92cecc2c96dc14e2348842c7a982a572",
 "manifest.json": "f02bbe5cf4ccee2b80a754e6a2419f83",
 "version.json": "355b22f848756dc30c55ec7659c77015"
 };
@@ -61,7 +61,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value, {'cache': 'reload'})));
+        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
     })
   );
 });
