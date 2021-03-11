@@ -51,6 +51,12 @@ class _SplashScreenState extends State<SplashScreen> {
               try {
                 Response response = await Dio().get(
                   "http://185.16.40.113:8080/api/slogan/random",
+                  options: Options(
+                    headers: {
+                      "Content-Type": "application/json",
+                      "token": "45425426-1363-4ee3-9056-7716b5d91583",
+                    },
+                  ),
                 );
                 slogan = "${response.data}";
                 setState(() => isLoading = false);
@@ -69,6 +75,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 Response response = await Dio().post(
                   "http://185.16.40.113:8080/api/auth/login",
                   data: {"username": "a", "password": "1"},
+                  options: Options(
+                    headers: {
+                      "Content-Type": "application/json",
+                      "token": "45425426-1363-4ee3-9056-7716b5d91583",
+                    },
+                  ),
                 );
                 slogan = "${response.data}";
                 setState(() => isLoading = false);
