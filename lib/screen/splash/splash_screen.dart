@@ -17,14 +17,32 @@ class _SplashScreenState extends State<SplashScreen> {
   final String token = "45425426-1363-4ee3-9056-7716b5d91583";
   bool isLoading = false;
   String slogan = "";
-  String auth = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       floatingActionButton: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+          FloatingActionButton(
+            child: Text("FAKE"),
+            //flutter build web --release --web-renderer html
+            onPressed: () async {
+              setState(() => isLoading = true);
+              try {
+                Response response = await Dio().get(
+                  "https://jsonplaceholder.typicode.com/users",
+                );
+                slogan = "${response.data}";
+                setState(() => isLoading = false);
+              } catch (e) {
+                slogan = "$e";
+                setState(() => isLoading = false);
+              }
+            },
+          ),
+          SizedBox(width: 30),
           FloatingActionButton(
             child: Text("GET"),
             //flutter build web --release --web-renderer html
@@ -52,24 +70,24 @@ class _SplashScreenState extends State<SplashScreen> {
                   "http://185.16.40.113:8080/api/auth/login",
                   data: {"username": "a", "password": "1"},
                 );
-                auth = "${response.data}";
+                slogan = "${response.data}";
                 setState(() => isLoading = false);
               } catch (e) {
-                auth = "$e";
+                slogan = "$e";
                 setState(() => isLoading = false);
               }
             },
           ),
         ],
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        alignment: Alignment.center,
-        color: Colors.white,
-        child: isLoading == true
-            ? CircularProgressIndicator()
-            : Text("Slogan = $slogan\n\n*****\n\nAuth = $auth"),
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.center,
+          color: Colors.white,
+          child: isLoading == true
+              ? CircularProgressIndicator()
+              : Text("DATA = $slogan"),
+        ),
       ),
     );
   }
