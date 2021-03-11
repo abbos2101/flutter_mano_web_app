@@ -26,6 +26,8 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           FloatingActionButton(
+            child: Text("GET"),
+            //flutter build web --release --web-renderer html
             onPressed: () async {
               setState(() => isLoading = true);
               try {
@@ -42,6 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           SizedBox(width: 10),
           FloatingActionButton(
+            child: Text("POST"),
             onPressed: () async {
               setState(() => isLoading = true);
               try {
